@@ -10,9 +10,11 @@ import {IUser} from "../../models/user.inteface";
 })
 export class UsersComponent implements OnInit {
 
-  users: IUser[] | undefined;
+  users: IUser[];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+
+  }
 
   ngOnInit(): void {
     this.userService.getUsers()

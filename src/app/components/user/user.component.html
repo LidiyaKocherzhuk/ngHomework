@@ -1,1 +1,10 @@
+<hr>
 <h2>{{user.id}}-{{user.name}} {{user.username}}</h2>
+
+<div class="posts">
+
+  <h3>POSTS:</h3>
+  <app-post *ngFor="let post of posts" [post]="post"></app-post>
+
+</div>
+<hr>

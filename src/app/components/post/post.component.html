@@ -1,0 +1,10 @@
+<div class="post">
+  {{post.id}}-{{post.title}}
+  <button (click)="onClick()">{{btnStatus ? 'close' : 'comments'}}</button>
+</div>
+
+<ul class="comments">
+  <h4>Comments:</h4>
+  <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+<hr>
+</ul>

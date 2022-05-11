@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-import {IUser} from '../../models/user.inteface';
+import {UserService} from "../../services/user.service";
+import {IPost} from "../../models/post.interface";
+import {IUser} from "../../models/user.inteface";
 
 @Component({
   selector: 'app-user',
@@ -10,12 +11,16 @@ import {IUser} from '../../models/user.inteface';
 export class UserComponent implements OnInit {
 
   @Input()
-  user: any;
+  user: IUser;
+  posts: IPost[];
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.userService.getUserPosts(this.user.id)
+      .subscribe(response => this.posts = response);
+
   }
 
 }
