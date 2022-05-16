@@ -15,8 +15,12 @@ export class UserDetailsComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(() => {
       // this.userDetails = history.state.data as IUser;
-        // @ts-ignore
-      this.userDetails = this.router.getCurrentNavigation().extras.state['data'] as IUser;
+      const state = this.router.getCurrentNavigation()?.extras?.state
+
+      if (state) {
+        this.userDetails = state['data'] as IUser;
+      }
+
     });
   }
 
