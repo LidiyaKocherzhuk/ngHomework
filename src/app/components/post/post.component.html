@@ -3,7 +3,7 @@
   <button (click)="onClick()">{{btnStatus ? 'close' : 'comments'}}</button>
 </div>
 
-<ul class="comments">
+<ul *ngIf="btnStatus">
   <h4>Comments:</h4>
   <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
 <hr>

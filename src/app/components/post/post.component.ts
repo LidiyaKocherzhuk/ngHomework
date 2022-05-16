@@ -13,7 +13,7 @@ export class PostComponent implements OnInit {
   @Input()
   post: IPost;
   comments: IComment[];
-  btnStatus: boolean = false;
+  btnStatus = false;
 
   constructor(private postService: PostService) {
   }
@@ -21,11 +21,6 @@ export class PostComponent implements OnInit {
   onClick() {
     const btnComment = document.getElementsByClassName('comments')[this.post.id-1];
     btnComment.classList.toggle('openComments');
-
-    if (this.btnStatus){
-      this.btnStatus = false;
-      return;
-    }
     this.btnStatus = true;
   }
 

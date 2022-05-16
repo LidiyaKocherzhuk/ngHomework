@@ -4,10 +4,3 @@
   align-items: center;
   justify-content: space-between;
 }
-
-.comments{
-  display: none;
-}
-.openComments{
-  display: block;
-}
