@@ -1,0 +1,12 @@
+.details{
+  position: fixed;
+  width: 31%;
+  right: 0;
+  top: 0;
+  margin: 8px;
+  height: 98vh;
+  background: silver;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

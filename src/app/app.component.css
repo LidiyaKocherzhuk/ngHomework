@@ -1,0 +1,15 @@
+.header {
+  height: 40px;
+  width: 68%;
+  background: silver;
+  display: flex;
+  justify-content: center;
+}
+.header a{
+  margin: 5px 50px;
+  font-size: 25px;
+}
+
+.header a:hover{
+  color: black;
+}
