@@ -14,7 +14,7 @@ import {
   UsersComponent
 } from './components';
 import {CommentDetailsComponent} from './components/comment-details/comment-details.component';
-import {UserDetailsComponent} from './components/user-details/user-details.component';
+import {UserDetailsComponent} from './components';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import {UserDetailsComponent} from './components/user-details/user-details.compo
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
+      {path: '', redirectTo: 'users-page', pathMatch: 'full'},
       {
         path: 'posts-page', component: PostsComponent, children: [
           {path: 'post-details/:id', component: PostDetailsComponent}
