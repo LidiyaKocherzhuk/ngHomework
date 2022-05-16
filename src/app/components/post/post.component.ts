@@ -19,9 +19,7 @@ export class PostComponent implements OnInit {
   }
 
   onClick() {
-    const btnComment = document.getElementsByClassName('comments')[this.post.id-1];
-    btnComment.classList.toggle('openComments');
-    this.btnStatus = true;
+      this.btnStatus = !this.btnStatus
   }
 
   ngOnInit(): void {
