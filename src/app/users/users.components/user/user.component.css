@@ -1,0 +1,12 @@
+li{
+  margin: 20px;
+}
+h3 {
+  display: flex;
+}
+a {
+  margin-left: 20px;
+}
+.active a {
+  background: silver;
+}

@@ -1,0 +1,10 @@
+.users {
+  display: flex;
+}
+ul {
+  width: 50%;
+}
+.userRouterBlock {
+  width: 50%;
+  right: 0;
+}

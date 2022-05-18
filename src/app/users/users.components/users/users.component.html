@@ -1,0 +1,9 @@
+<div class="users">
+  <ul>
+    <app-user *ngFor="let user of users" [user]="user"></app-user>
+  </ul>
+
+  <div class="userRouterBlock">
+    <router-outlet></router-outlet>
+  </div>
+</div>

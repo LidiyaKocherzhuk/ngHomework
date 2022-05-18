@@ -1,0 +1,3 @@
+<li routerLinkActive="active">
+  {{post.id}}. - <a [routerLink]="[post.id]" [state]="{data: post}">{{post.title}}</a>
+</li>
