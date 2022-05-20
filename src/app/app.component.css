@@ -1,0 +1,17 @@
+.header {
+  height: 50px;
+  background: #17401d;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffe300;
+}
+.active a{
+  color: #ffe300;
+}

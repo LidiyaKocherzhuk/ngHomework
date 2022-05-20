@@ -1,0 +1,7 @@
+h2 {
+  margin: 10px;
+}
+.details {
+  display: flex;
+  justify-content: center;
+}

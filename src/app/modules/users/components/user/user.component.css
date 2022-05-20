@@ -1,0 +1,16 @@
+h2 {
+  margin: 5px;
+}
+button {
+  background: #286e35;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+button:hover {
+  background: #17401d;
+}
+
+.active button{
+  background: #17401d;
+}

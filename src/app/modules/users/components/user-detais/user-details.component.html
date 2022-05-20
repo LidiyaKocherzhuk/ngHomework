@@ -1,0 +1,17 @@
+<div *ngIf="userDetails">
+
+  <h3>{{userDetails.id}} -- {{userDetails.name}}</h3>
+  <h4><i>username:</i> - {{userDetails.username}}</h4>
+  <h4><i>email:</i> - {{userDetails.email}}</h4>
+  <h4><i>phone:</i> - {{userDetails.phone}}</h4>
+  <h4><i>address:</i>
+
+    <div class="address">
+      <h4><i>street:</i> - {{userDetails.address.street}}</h4>
+      <h4><i>suite:</i> - {{userDetails.address.suite}}</h4>
+      <h4><i>city:</i> - {{userDetails.address.city}}</h4>
+      <h4><i>zipcode:</i> - {{userDetails.address.zipcode}}</h4>
+    </div>
+
+  </h4>
+</div>

@@ -1,0 +1,13 @@
+.posts {
+  width: 60%;
+}
+.details {
+  width: 40%;
+  position: fixed;
+  top: 100px;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
