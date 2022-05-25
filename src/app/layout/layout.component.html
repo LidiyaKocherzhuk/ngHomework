@@ -1,0 +1,9 @@
+<div class="header">
+  <h2 routerLinkActive="active"><a [routerLink]="['registration']">Registration</a></h2>
+  <h2 routerLinkActive="active"><a [routerLink]="['login']">Login</a></h2>
+  <h2 routerLinkActive="active" *ngIf="isAuthorization"><a [routerLink]="['cars']">Cars</a></h2>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

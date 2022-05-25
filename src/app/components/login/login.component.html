@@ -1,0 +1,16 @@
+<div class="blockForm">
+  <form [formGroup]="form">
+
+    <label> Username: <input type="text" formControlName="username"></label>
+    <label> Password: <input type="text" formControlName="password"></label>
+
+    <p *ngIf="form.invalid && form.touched">
+      ( -Username must be lower case and start with a letter !!! <br> -All fields
+      are required and
+      must be in range 2-20 characters !!!)
+    </p>
+
+    <button [disabled]="form.invalid && !form.touched" (click)="login()">Login</button>
+
+  </form>
+</div>

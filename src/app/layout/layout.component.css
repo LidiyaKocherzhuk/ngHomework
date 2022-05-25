@@ -1,0 +1,15 @@
+.header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #fcfcfc;
+  box-shadow: 0 0 20px 0 silver;
+}
+a {
+  text-decoration: none;
+}
+.active a{
+  text-decoration: revert;
+  color: #ba0000;
+}

@@ -1,0 +1,16 @@
+<div >
+  <form [formGroup]="form">
+    <label>Model:<input type="text" formControlName="model"></label>
+    <label>Year:<input type="number" formControlName="year"></label>
+    <label>Price:<input type="number" formControlName="price"></label>
+
+    <p *ngIf="form.invalid && form.touched">( - Model is required and in range 2-20 characters !!! <br> All fields must be in
+      range 2-20 characters !!! )</p>
+
+    <button [disabled]="form.invalid && form.touched" (click)="save()">Save</button>
+  </form>
+</div>
+
+<div>
+  <h3 *ngFor="let car of cars">{{car.model}}-{{car.year}}</h3>
+</div>
