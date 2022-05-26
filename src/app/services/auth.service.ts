@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable, tap} from "rxjs";
+import {HttpClient} from '@angular/common/http';
+import {Observable, tap} from 'rxjs';
 
-import {urls} from "../config";
-import {IUser} from "../interfaces";
-import {IToken} from "../interfaces/token.interface";
+import {urls} from '../config';
+import {IUser, IToken} from '../interfaces';
 
 @Injectable({
   providedIn: 'root'

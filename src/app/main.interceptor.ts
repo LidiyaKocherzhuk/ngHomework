@@ -5,12 +5,12 @@ import {
   HttpEvent,
   HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
-import {finalize, Observable, throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {catchError, switchMap} from 'rxjs/operators'
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
-import {AuthService} from "./services";
-import {IToken} from "./interfaces/token.interface";
+import {AuthService} from './services';
+import {IToken} from './interfaces';
 
 @Injectable()
 export class MainInterceptor implements HttpInterceptor {

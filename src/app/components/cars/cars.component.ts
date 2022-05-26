@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {CarsService} from "../../services";
-import {ICar} from "../../interfaces";
+import {CarsService} from '../../services';
+import {ICar} from '../../interfaces';
 
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['../../styles/styles.css','./cars.component.css']
+  styleUrls: ['../../styles/styleForFormBloc.css','./cars.component.css']
 })
 export class CarsComponent implements OnInit {
 

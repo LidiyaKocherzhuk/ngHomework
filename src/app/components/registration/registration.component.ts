@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
-import {AuthService} from "../../services";
+import {AuthService} from '../../services';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css', '../../styles/styles.css']
+  styleUrls: ['./registration.component.css', '../../styles/styleForFormBloc.css']
 })
 export class RegistrationComponent implements OnInit {
 

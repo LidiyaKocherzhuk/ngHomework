@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ICar} from "../../interfaces";
+
+import {ICar} from '../../interfaces';
 
 @Component({
   selector: 'app-car',
