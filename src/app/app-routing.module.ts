@@ -6,6 +6,7 @@ import {LayoutComponent} from "./layout/layout.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegistrationComponent} from "./components/registration/registration.component";
 import {CarsComponent} from "./components/cars/cars.component";
+import {CarGuard} from "./services/guards/car.guard";
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'registration', component: RegistrationComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'cars', component: CarsComponent}
+      {path: 'cars', canActivate:[CarGuard], component: CarsComponent}
     ]
   },
 ];

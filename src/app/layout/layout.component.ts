@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {AuthService} from "../services";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -9,14 +7,10 @@ import {AuthService} from "../services";
 })
 export class LayoutComponent implements OnInit {
 
-  isAuthorization: boolean;
-
-  constructor(private authService: AuthService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.isAuthorization = !!this.authService.getToken();
-    console.log(this.isAuthorization)
   }
 
 }

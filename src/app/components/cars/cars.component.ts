@@ -1,26 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {CarsService} from "../../services";
 import {ICar} from "../../interfaces";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['./cars.component.css']
+  styleUrls: ['../../styles/styles.css','./cars.component.css']
 })
 export class CarsComponent implements OnInit {
 
   form: FormGroup;
   cars: ICar[];
+  car: ICar;
+  carForUpdate: ICar | null;
 
   constructor(private carsService: CarsService) {
     this.createForm();
-    console.log(this.form)
   }
 
   ngOnInit(): void {
-    this.carsService.getAll().subscribe(response => this.cars = response);
+    this.carsService.getAll().subscribe(response => {
+      this.cars = response
+    });
   }
 
   createForm(): void {
@@ -32,10 +35,10 @@ export class CarsComponent implements OnInit {
           Validators.pattern('^[a-zA-Zа-яА-ЯіІїЇ]{2,20}$')
         ]),
       year: new FormControl(
-        1995,
+        1990,
         [
           Validators.min(1990),
-          Validators.max(Date.now())
+          Validators.max(new Date().getFullYear())
         ]
       ),
       price: new FormControl(
@@ -50,6 +53,41 @@ export class CarsComponent implements OnInit {
   }
 
   save() {
-    this.carsService.create(this.form.value).subscribe(value => this.cars.push(value));
+    if (!this.carForUpdate) {
+
+      this.carsService.create(this.form.value).subscribe(value => this.cars.push(value));
+
+    } else {
+
+      this.carsService.update(this.carForUpdate.id, this.form.value).subscribe(response => {
+        console.log(response);
+        this.cars.forEach(item => {
+          if (response.id === item.id) {
+            Object.assign(item, response)
+          }
+        })
+        this.carForUpdate = null;
+      });
+
+    }
+      this.form.reset();
+
   }
+
+  details(id: number | undefined): void {
+    this.carsService.getById(id).subscribe(response => this.car = response);
+  }
+
+  delete(id: number | undefined): void {
+    this.carsService.delete(id).subscribe(() => {
+      const index = this.cars.findIndex(car => car.id === id);
+      this.cars.splice(index, 1);
+    });
+  }
+
+  update(car: ICar) {
+    this.carForUpdate = car;
+    this.form.setValue({model: car.model, year: car.year, price: car.price});
+  }
+
 }

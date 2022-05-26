@@ -8,9 +8,10 @@ import { CarsComponent } from './components/cars/cars.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
-import { CarComponent } from './components/car/car.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {MainInterceptor} from "./main.interceptor";
+import {CarGuard} from "./services/guards/car.guard";
+import { CarComponent } from './components/car/car.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {MainInterceptor} from "./main.interceptor";
     LayoutComponent,
     RegistrationComponent,
     LoginComponent,
-    CarComponent
+    CarComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +34,8 @@ import {MainInterceptor} from "./main.interceptor";
       provide: HTTP_INTERCEPTORS,
       multi: true,
       useClass: MainInterceptor,
-    }
+    },
+    CarGuard,
   ],
   bootstrap: [AppComponent]
 })

@@ -20,15 +20,15 @@ export class CarsService {
     return this.httpClient.get<ICar[]>(urls.cars);
   }
 
-  getById(id: number): Observable<ICar> {
+  getById(id: number | undefined): Observable<ICar> {
     return this.httpClient.get<ICar>(`${urls.cars}/${id}`);
   }
 
-  delete(id: number): void {
-    this.httpClient.delete(`${urls.cars}/${id}`);
+  delete(id: number | undefined): Observable<void> {
+    return this.httpClient.delete<void>(`${urls.cars}/${id}`);
   }
 
-  update(id: number, car: ICar): Observable<ICar> {
+  update(id: number | undefined, car: Partial<ICar>): Observable<ICar> {
     return this.httpClient.patch<ICar>(`${urls.cars}/${id}`, car);
   }
 
