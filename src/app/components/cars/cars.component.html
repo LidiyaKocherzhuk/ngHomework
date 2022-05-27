@@ -1,27 +1,21 @@
 <div class="blockForm">
   <h1>Create car</h1>
   <form [formGroup]="form">
-    <label>Model:  <input type="text" formControlName="model"></label>
-    <label>Year:  <input type="number" formControlName="year"></label>
-    <label>Price:  <input type="number" formControlName="price"></label>
+    <label>Model: <input type="text" formControlName="model"></label>
+    <label>Year: <input type="number" formControlName="year"></label>
+    <label>Price: <input type="number" formControlName="price"></label>
 
-    <p *ngIf="form.invalid && form.touched">( - Model is required and in range 2-20 characters !!! <br> All fields must be in
+    <p *ngIf="form.invalid && form.touched">( - Model is required and in range 2-20 characters !!! <br> All fields must
+      be in
       range 2-20 characters !!! )</p>
 
     <button [disabled]="form.invalid && form.touched" (click)="save()">{{carForUpdate ? 'Update' : 'Save'}}</button>
   </form>
 </div>
 
-<div class="cars">
+<div *ngIf="cars" class="cars">
   <h2>Cars:</h2>
-  <div class="carsBlock">
-    <h3 *ngFor="let car of cars">
-      {{car.model}}-{{car.year}}
-      <button (click)="details(car.id)">Get Details</button>
-      <button (click)="delete(car.id)">Delete</button>
-      <button (click)="update(car)">Update</button>
-      <hr>
-    </h3>
-  </div>
-    <app-car *ngIf="car" [car]="car" class="car"></app-car>
+  <app-car *ngFor="let car of cars" [car]="car"
+           (deleteEmitter)="deleteEmit($event)"
+           (updateEmitter)="updateEmit($event)"></app-car>
 </div>

@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {ICar} from '../../interfaces';
+import {CarsService} from '../../services';
 
 @Component({
   selector: 'app-car',
@@ -11,10 +12,23 @@ export class CarComponent implements OnInit {
 
   @Input()
   car: ICar;
+  @Output()
+  deleteEmitter = new EventEmitter<ICar | null>()
+  @Output()
+  updateEmitter = new EventEmitter<ICar | null>()
 
-  constructor() { }
+  constructor(private carsService: CarsService) {}
 
   ngOnInit(): void {
   }
 
+  delete(): void {
+    this.carsService.delete(this.car.id).subscribe(() => {
+      this.deleteEmitter.emit(this.car)
+    });
+  }
+
+  update() {
+    this.updateEmitter.emit(this.car)
+  }
 }

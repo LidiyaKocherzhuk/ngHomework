@@ -13,7 +13,6 @@ export class CarsComponent implements OnInit {
 
   form: FormGroup;
   cars: ICar[];
-  car: ICar;
   carForUpdate: ICar | null;
 
   constructor(private carsService: CarsService) {
@@ -74,20 +73,13 @@ export class CarsComponent implements OnInit {
 
   }
 
-  details(id: number | undefined): void {
-    this.carsService.getById(id).subscribe(response => this.car = response);
+  deleteEmit(carEmit: ICar | null) {
+    const index = this.cars.findIndex(car => car.id === carEmit?.id);
+    this.cars.splice(index, 1);
   }
 
-  delete(id: number | undefined): void {
-    this.carsService.delete(id).subscribe(() => {
-      const index = this.cars.findIndex(car => car.id === id);
-      this.cars.splice(index, 1);
-    });
-  }
-
-  update(car: ICar) {
+  updateEmit(car: ICar | null) {
     this.carForUpdate = car;
-    this.form.setValue({model: car.model, year: car.year, price: car.price});
+    this.form.setValue({model: car?.model, year: car?.year, price: car?.price});
   }
-
 }

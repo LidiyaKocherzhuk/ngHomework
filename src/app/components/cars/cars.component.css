@@ -1,26 +1,15 @@
 .blockForm {
   flex-direction: column;
 }
-h1, h2 {
+h1 {
   margin: 20px;
   color: #581b8b;
 }
 h2 {
   width: 100%;
+  margin: 20px;
+  color: #581b8b;
 }
 .cars {
-  display: flex;
-  flex-wrap: wrap;
   margin: 0 50px 50px;
-}
-.carsBlock{
-  width: 70%;
-}
-.car {
-  width: 30%;
-  height: 300px;
-  position: fixed;
-  display: flex;
-  right: 0;
-  justify-content: center;
 }

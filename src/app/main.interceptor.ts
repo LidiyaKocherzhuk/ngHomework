@@ -9,7 +9,7 @@ import {Observable, throwError} from 'rxjs';
 import {catchError, switchMap} from 'rxjs/operators'
 import {Router} from '@angular/router';
 
-import {AuthService} from './services';
+import {AuthService, DataService} from './services';
 import {IToken} from './interfaces';
 
 @Injectable()
@@ -17,13 +17,14 @@ export class MainInterceptor implements HttpInterceptor {
 
   isRefreshing = false;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private dataService: DataService) {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const isAuthenticated = this.authService.getAccessToken();
 
     if (isAuthenticated) {
+      this.dataService.storage.next(true);
       request = this.addToken(request, isAuthenticated);
     }
     return next.handle(request).pipe(

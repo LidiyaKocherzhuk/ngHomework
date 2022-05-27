@@ -1,7 +1,14 @@
-h2 {
-  color: #581b8b;
+.car {
+  margin: 20px 0 ;
+  padding: 0 20px ;
 }
-li {
-  font-size: 18px;
+button {
   margin: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  box-shadow: 0 0 10px 0 black;
 }
